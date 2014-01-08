@@ -5,10 +5,10 @@ function draw_crystal(crystal) {
     ccc.strokeStyle = "rgb(0,0,0)";
     ccc.lineWidth = 1;
     ccc.beginPath();
-    ccc.moveTo(crystal.x1, crystal.y1);
-    ccc.lineTo(crystal.x2, crystal.y2);
-    ccc.lineTo(crystal.x3, crystal.y3);
-    ccc.lineTo(crystal.x1, crystal.y1);
+    ccc.moveTo(crystal.p1.x, crystal.p1.y);
+    ccc.lineTo(crystal.p2.x, crystal.p2.y);
+    ccc.lineTo(crystal.p3.x, crystal.p3.y);
+    ccc.lineTo(crystal.p1.x, crystal.p1.y);
     ccc.fill();
     ccc.stroke();
     ccc.closePath();

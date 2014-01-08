@@ -24,19 +24,6 @@ function handle_buttons(x, y) {
     }
 }
 
-function new_ship(x, y, vx, vy) {
-    return {   'x' : x,
-               'y' : y,
-              'vx' : vx,
-              'vy' : vy,
-              'ax' : 0.0,
-              'ay' : 0.0,
-               'z' : 1.0,
-              'zo' : 1.0,
-            'time' : time,
-              'on' : 1 };
-}
-
 function handle_canvas_click(x, y) {
     var vx = -ccc_clickstate.dx * ship_v_scale;
     var vy = -ccc_clickstate.dy * ship_v_scale;
@@ -133,6 +120,8 @@ function init_canvas() {
     planet_canvas.onmouseup = on_ccc_mouseup;
     ccc_width = planet_canvas.width;
     ccc_height = planet_canvas.height;
+    ccc_hw = ccc_width / 2.0;
+    ccc_hh = ccc_height / 2.0;
 
     // Area at the top to draw text
     con_width = planet_canvas.width;

@@ -4,26 +4,13 @@
 function rnd_belt() {
     var ret = { 'x' : 0.0, 'y' : 0.0, 'vx' : 0.0, 'vy' : 0.0 };
     var theta = Math.random() * 2.0 * Math.PI;
-    var rmax = Math.min(ccc_height, ccc_width) / 2.0;
+    var rmax = Math.min(ccc_hh, ccc_hw);
     var r = ((Math.random() * (belt_max - belt_min)) + belt_min) * rmax;
-    ret.x = (r * Math.cos(theta)) + (ccc_width / 2.0);
-    ret.y = (r * Math.sin(theta)) + (ccc_height / 2.0);
+    ret.x = (r * Math.cos(theta)) + ccc_hw;
+    ret.y = (r * Math.sin(theta)) + ccc_hh;
     ret.vx = -2.0 * Math.sin(theta);
     ret.vy = -2.0 * -Math.cos(theta);
     return ret;
-}
-
-function new_crystal() {
-    return {     'x1' : 0,
-                 'y1' : 0,
-                 'x2' : 0,
-                 'y2' : 0,
-                 'x3' : 0,
-                 'y3' : 0,
-               'color': 'rgb(0,0,255)',
-       'num_branches' : 0,
-           'branches' : new Array(max_branches)
-           };
 }
   
 function spawn_crystals() {
@@ -63,15 +50,11 @@ function draw_grid() {
 
 function init_grid() {
     // Initialize crystals
-    crystals = new_crystal();
-    crystals.x1 = ccc_width / 2.0;
-    crystals.y1 = (ccc_height / 2.0) + (ccc_height * 0.05);
-    crystals.x2 = (ccc_width / 2.0) + (ccc_width * 0.05);
-    crystals.y2 = (ccc_height / 2.0) - (ccc_height * 0.05);
-    crystals.x3 = (ccc_width / 2.0) - (ccc_width * 0.05);
-    crystals.y3 = (ccc_height / 2.0) - (ccc_height * 0.05);
-    crystals.color = get_draw_color(Math.random());        
-    
+    crystals = new_crystal(new_point(ccc_hw, ccc_hh, 0.0, 0.0),
+                                                            50,
+                                                           0.0,
+                                  get_draw_color(Math.random())
+                          );    
     ////////////////////////////////////////
     // Initialize the planet array
     planets = Array(max_planets);

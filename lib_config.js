@@ -6,6 +6,8 @@ var draw_id = null;
 var planet_canvas;
 var ccc_width;
 var ccc_height;
+var ccc_hw; // half width (it comes up a lot)
+var ccc_hh; // half height
 var ccc;
 var ccc_clickstate;
 
@@ -52,3 +54,5 @@ var acc_scale_push = 10.0;  // Acceleration scale for near-field force : 10.0
 var ship_duration = 100;  // Number of iterations before a ship disappears
 
 var sqrt2 = Math.sqrt(2.0);
+var cos30 = Math.cos(Math.PI / 6.0);
+var sin30 = Math.sin(Math.PI / 6.0);
