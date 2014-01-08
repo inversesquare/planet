@@ -31,8 +31,10 @@ var cur_planet = 0;  // Currently available planet array index
 var planet_acc_scale = 4.0;  // Planet acceleration scale
   
 var crystals; // Tree of crystal objects
-var max_branches = 4; // Max number of branches a crystal can parent
-var crystal_spawn_time = 3;  // Number of seconds between spawned crystals
+var crystal_spawn_time = 0.1;  // Number of seconds between spawned crystals : 3
+var crystal_init_size = 50;  // Initial radius of main crystal in pixels : 50
+var crystal_max_recursion = 5;  // Maximum depth of crystal recursion : 5
+var crystal_made_one = 0;  // Global flag to halt recursion
   
 var belt_min = 0.5;  // Max and min for asteroid belt, range 0.0 - 1.0
 var belt_max = 1.0;

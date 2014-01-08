@@ -15,11 +15,13 @@ function rnd_belt() {
   
 function spawn_crystals() {
     // Only spawn crystals every crystal_spawn_time seconds
-    if ((time % Math.ceil(fps * crystal_spawn_time)) != (Math.ceil(fps * crystal_spawn_time) - 1)) {
+    if ((time % Math.ceil(fps * crystal_spawn_time)) != (Math.ceil(fps * crystal_spawn_time) - 1)) {    
         return;
     }
     
     // Spawn new crystals by walking down tree and seeing if there's room
+    crystal_made_one = 0;
+    recurse_crystals(crystals, 5);
 }
 
 function draw_grid() {
@@ -51,9 +53,9 @@ function draw_grid() {
 function init_grid() {
     // Initialize crystals
     crystals = new_crystal(new_point(ccc_hw, ccc_hh, 0.0, 0.0),
-                                                            50,
+                                             crystal_init_size,
                                                            0.0,
-                                  get_draw_color(Math.random())
+                                                  Math.random()
                           );    
     ////////////////////////////////////////
     // Initialize the planet array

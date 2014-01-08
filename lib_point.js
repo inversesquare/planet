@@ -20,10 +20,10 @@ function rotate_point(pt, pc, theta) {
     var vx = pt.vx;
     var vy = pt.vy;
     
-    pt.x = (( x * st) + (y * ct)) + pc.x;
-    pt.y = ((-x * ct) + (y * st)) + pc.y;
-    pt.vx = (( vx * st) + (vy * ct));
-    pt.vy = ((-vx * ct) + (vy * st));
+    pt.x = (( x * ct) + ( y * st)) + pc.x;
+    pt.y = ((-x * st) + ( y * ct)) + pc.y;
+    pt.vx = (( vx * ct) + ( vy * st));
+    pt.vy = ((-vx * st) + ( vy * ct));
 }
 
 // Translate a point (pt) relative to another point (pc)

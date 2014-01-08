@@ -1,14 +1,14 @@
 // Functions related to drawing objects on the canvas
 
 function draw_crystal(crystal) {
-    ccc.fillStyle = crystal.color;
+    ccc.fillStyle = get_draw_color(crystal.color_value);
     ccc.strokeStyle = "rgb(0,0,0)";
     ccc.lineWidth = 1;
     ccc.beginPath();
-    ccc.moveTo(crystal.p1.x, crystal.p1.y);
-    ccc.lineTo(crystal.p2.x, crystal.p2.y);
-    ccc.lineTo(crystal.p3.x, crystal.p3.y);
-    ccc.lineTo(crystal.p1.x, crystal.p1.y);
+    ccc.moveTo(crystal.pts[0].x, crystal.pts[0].y);
+    ccc.lineTo(crystal.pts[1].x, crystal.pts[1].y);
+    ccc.lineTo(crystal.pts[2].x, crystal.pts[2].y);
+    ccc.lineTo(crystal.pts[0].x, crystal.pts[0].y);
     ccc.fill();
     ccc.stroke();
     ccc.closePath();
@@ -18,10 +18,8 @@ function draw_crystals(crystal) {
     if (!crystal)
         return;
     draw_crystal(crystal);
-    if (crystal.num_branches > 0) {
-        for (var i = 0; i < num_branches; i++) {
-            draw_crystals(crystal.branches[i]);
-        }
+    for (var i = 0; i < crystal.branches.length; i++) {
+        draw_crystals(crystal.branches[i]);
     }
 }
   
