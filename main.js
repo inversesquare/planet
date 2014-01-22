@@ -21,7 +21,7 @@ function spawn_crystals() {
     
     // Spawn new crystals by walking down tree and seeing if there's room
     crystal_made_one = 0;
-    recurse_crystals(crystals, 5);
+    recurse_crystals(crystals, crystal_max_recursion);
 }
 
 function draw_grid() {
@@ -170,6 +170,9 @@ function update_grid() {
 
         bbb[n].x = wrap_x(bbb[n].x + bbb[n].vx);
         bbb[n].y = wrap_y(bbb[n].y + bbb[n].vy);
+        
+        crystal_hit_one = 0;
+        crystal_collision(crystals, new_point(bbb[n].x, bbb[n].y, 0.0, 0.0));
     }
     avg_mob_v /= num_b > 0 ? num_b : 1;
     con_text[2] = "Avg.V: " + avg_mob_v.toFixed(2);
